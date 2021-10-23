@@ -6,4 +6,3 @@ export { default as equipmentReference } from "./equipmentReference";
 export { default as mainImage } from "./mainImage";
 export { default as openGraph } from "./openGraph";
 export { default as pagePortableText } from "./pagePortableText";
-// export { default as horizontalRule } from "../objects/horizontalRule";

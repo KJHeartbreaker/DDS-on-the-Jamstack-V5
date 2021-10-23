@@ -1,7 +1,10 @@
 import S from "@sanity/desk-tool/structure-builder";
 import { MdSettings } from "react-icons/md";
 import { MdPerson, MdDescription, MdLocalOffer } from "react-icons/md";
+import { GoBrowser as GoHome, GoSettings } from "react-icons/go";
 import IframePreview from "../previews/IframePreview";
+import navigation from "./navigation";
+import pages from "./pages";
 
 // Web preview configuration
 const remoteURL = "https://dds-on-the-jamstack-v-5.netlify.app";
@@ -45,7 +48,7 @@ export default () =>
     .items([
       S.listItem()
         .title("Settings")
-        .icon(MdSettings)
+        .icon(GoSettings)
         .child(
           S.editor()
             .id("siteSettings")
@@ -71,6 +74,14 @@ export default () =>
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
+      S.divider(),
+      navigation,
+      S.documentListItem()
+        .title("Homepage")
+        .schemaType("page")
+        .icon(GoHome)
+        .child(S.document().schemaType("page").documentId("homepage")),
+      pages,
       ...S.documentTypeListItems().filter(
         (listItem) =>
           !["category", "author", "post", "siteSettings"].includes(

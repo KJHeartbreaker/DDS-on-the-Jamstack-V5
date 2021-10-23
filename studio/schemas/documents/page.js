@@ -32,13 +32,13 @@ export default {
         maxLength: 96,
       },
     },
-    // {
-    //   name: "content",
-    //   type: "array",
-    //   title: "Page sections",
-    //   description: "Add, edit, and reorder sections",
-    //   of: [{ type: "hero" }, { type: "grid" }, { type: "equipmentGrid" }],
-    // },
+    {
+      name: "content",
+      type: "array",
+      title: "Page sections",
+      description: "Add, edit, and reorder sections",
+      of: [{ type: "hero" }, { type: "grid" }, { type: "equipmentGrid" }],
+    },
     {
       title: "Use site title?",
       description:

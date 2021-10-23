@@ -1,0 +1,26 @@
+{
+	"workbench.colorCustomizations": {
+		"titleBar.activeForeground": "#fff",
+		"titleBar.inactiveForeground": "#000000CC",
+		"titleBar.activeBackground": "#ff08c7",
+		"titleBar.inactiveBackground": "#ff08c7aa"
+	},
+	// These are all my auto-save configs
+	"editor.formatOnSave": true,
+	// turn it off for JS and JSX, we will do this via eslint
+	"[javascript]": {
+		"editor.formatOnSave": false
+	},
+	"[javascriptreact]": {
+		"editor.formatOnSave": false
+	},
+	// tell the ESLint plugin to run on save
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true
+	},
+	// Set prettier extension as default formatter and turn it off for JS since we are doing it through Eslint already
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[javascript, javascriptreact]": {
+		"editor.defaultFormatter": null
+	}
+}

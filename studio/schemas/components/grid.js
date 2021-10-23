@@ -35,8 +35,8 @@ export default {
       name: "blocks",
       type: "array",
       of: [
-        // { type: "pagePortableText" },
-        // { type: "contactForm" },
+        { type: "pagePortableText" },
+        { type: "contactForm" },
         { type: "mainImage" },
       ],
     },

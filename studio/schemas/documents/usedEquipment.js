@@ -22,11 +22,11 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
-    // {
-    //   name: "tagline",
-    //   title: "Description",
-    //   type: "pagePortableText",
-    // },
+    {
+      name: "tagline",
+      title: "Description",
+      type: "pagePortableText",
+    },
     // {
     //   name: "price",
     //   title: "Price",

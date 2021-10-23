@@ -1,7 +1,7 @@
-import PriceInput from "../../helpers/PriceInput";
+// import PriceInput from "../../helpers/PriceInput";
 
 export default {
-  name: "used",
+  name: "usedEquipment",
   type: "document",
   title: "Used Equipment",
   fields: [

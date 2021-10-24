@@ -5,8 +5,6 @@ import BasicModal from "../Modal/BasicModal";
 import { EquipmentGridCard, EquipmentGridContainer } from "./Grid.styles";
 
 export default function EquipmentGrid({ content }) {
-  console.log("content: ", content);
-
   return (
     <EquipmentGridContainer>
       {content.map((el) => (

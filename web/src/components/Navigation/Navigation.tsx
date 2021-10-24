@@ -13,6 +13,7 @@ import {
   MobileMenuDropdown,
 } from "./Navigation.styles";
 import LogoDark from "./LogoDark";
+import Logo from "../Logo/Logo";
 
 export default function PrimaryNavigation({ path, crumbs }) {
   const data = useStaticQuery(graphql`
@@ -81,7 +82,11 @@ export default function PrimaryNavigation({ path, crumbs }) {
         <PrimaryNav>
           <LogoContainer>
             <Link id="siteTitle" to="/" aria-label="Return to the homepage">
-              <LogoDark />
+              <Logo />
+              <div>
+                <p className="logo-top">Desert</p>
+                <p className="logo-bottom">Drilling Supply</p>
+              </div>
             </Link>
           </LogoContainer>
           {!isMobile ? (

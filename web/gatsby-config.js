@@ -22,7 +22,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
-    // `gatsby-plugin-sanity-image`,
     `gatsby-plugin-netlify`,
     {
       resolve: "gatsby-plugin-robots-txt",
@@ -54,5 +53,16 @@ module.exports = {
       },
     },
     `gatsby-plugin-force-trailing-slashes`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `EB Garamond:400,600`,
+          `Esteban:400`,
+          `Oswald:300,400,600,700`, // you can also specify font weights and styles
+        ],
+        display: "swap",
+      },
+    },
   ],
 };

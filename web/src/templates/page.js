@@ -74,8 +74,6 @@ export default function Page(props) {
           el = <LayoutGrid key={c._key} {...c} />;
           break;
         case "equipmentGrid":
-          console.log("c: ", c);
-
           el = <EquipmentGrid key={c._key} {...c} />;
           break;
         default:

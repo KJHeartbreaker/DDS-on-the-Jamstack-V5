@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React from "react";
-import Figure from "./figure/Figure";
+import Figure from "./Figure/Figure";
 // import SanityImage from "gatsby-plugin-sanity-image";
 import CTALink from "../components/CTA/CTALink";
 

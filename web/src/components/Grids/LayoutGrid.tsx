@@ -2,7 +2,7 @@
 import * as React from "react";
 import { GridComponentContainer, Panel, XColumnsUp } from "./Grid.styles";
 import PortableText from "../portableText";
-import Figure from "../figure/Figure";
+import Figure from "../Figure/Figure";
 import ContactForm from "../ContactForm/ContactForm";
 
 export default function LayoutGrid({ blocks }) {

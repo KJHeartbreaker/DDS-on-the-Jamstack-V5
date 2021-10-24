@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import React from "react";
-import Figure from "../figure/Figure";
+import Figure from "../Figure/Figure";
 import BasicModal from "../Modal/BasicModal";
 import { EquipmentGridCard, EquipmentGridContainer } from "./Grid.styles";
 

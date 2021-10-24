@@ -12,7 +12,7 @@ import {
   HeroCopy,
   ParaHeroContainer,
 } from "./Hero.styles";
-import Figure from "../figure/Figure";
+import Figure from "../Figure/Figure";
 import ParaHero from "./ParaHero";
 
 export default function Hero({

@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import PortableText from '../portableText';
 import SwipeableTextMobileStepper from '../Carousel/Carousel';
-import Figure from '../figure/Figure';
+import Figure from '../Figure/Figure';
 import { CopySide, MediaSide, ModalLayout } from './Modal.styles';
 import { grid } from '@mui/system';
 

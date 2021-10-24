@@ -1,6 +1,6 @@
 import React from "react";
 import { Parallax, Background } from "react-parallax";
-import Figure from "../figure/Figure";
+import Figure from "../Figure/Figure";
 
 export default function ParaHero({ illustration }) {
   return (

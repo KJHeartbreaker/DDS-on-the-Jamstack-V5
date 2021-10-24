@@ -22,12 +22,14 @@ export default function Hero({
   cta,
   illustration,
   singleColumn,
-  colorlist,
+  backgroundColour,
 }) {
-  const theme = colorlist ? colorlist.title.toLowerCase() : "";
+  const theme = backgroundColour ? backgroundColour : "";
+  console.log("backgroundColour: ", backgroundColour);
+
   return (
     <>
-      <Wrapper colorlist={colorlist}>
+      <Wrapper className={theme}>
         {singleColumn ? (
           <ParaHeroContainer>
             <Centered className={theme}>
@@ -80,5 +82,5 @@ Hero.propTypes = {
   singleColumn: PropTypes.bool,
   waveBelow: PropTypes.bool,
   waveAbove: PropTypes.bool,
-  colorlist: PropTypes.object,
+  backgroundColour: PropTypes.string,
 };

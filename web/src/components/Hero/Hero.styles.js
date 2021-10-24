@@ -103,15 +103,29 @@ export const Wrapper = styled(HeroWrapper)`
   align-items: center;
   margin-bottom: 50px;
 
-  ${({ colorlist }) =>
-    colorlist &&
-    css`
-      background-image: linear-gradient(
-        90deg,
-        ${colorlist.value} 0%,
-        ${colorlist.light} 100%
-      );
-    `};
+  &.brown {
+    background-image: linear-gradient(90deg, #2e1b0c 0%, #e3c4a8 100%);
+  }
+
+  &.darkBlue {
+    background-image: linear-gradient(90deg, #3d547a 0%, #7c8cc4 100%);
+  }
+
+  &.darkBlueSolid {
+    background-color: #3d547a;
+  }
+
+  &.brownSolid {
+    background-color: #2e1b0c;
+  }
+
+  &.tan {
+    background-color: #e3c4a8;
+  }
+
+  &.lightBlue {
+    background-color: #b4d4ec;
+  }
 
   @media ${device.sm} {
     margin-bottom: "0px";
@@ -134,8 +148,9 @@ export const Wrapper = styled(HeroWrapper)`
     }
 
     &.brown,
-    &.solidbrown,
-    &.darkblue {
+    &.brownSolid,
+    &.darkBlue,
+    &.darkBlueSolid {
       h1,
       h2,
       h3,
@@ -147,7 +162,7 @@ export const Wrapper = styled(HeroWrapper)`
     }
 
     &.brown,
-    &.solidbrown,
+    &.brownSolid,
     &.tan {
       button {
         background-color: var(--dark-blue);
@@ -158,7 +173,8 @@ export const Wrapper = styled(HeroWrapper)`
       }
     }
 
-    &.darkblue {
+    &.darkBlue,
+    &.darkBlueSolid {
       button {
         background-color: var(--brown);
 

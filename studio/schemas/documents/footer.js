@@ -8,10 +8,10 @@ export default {
       type: "string",
       name: "title",
     },
-    // {
-    //   type: "array",
-    //   name: "footerLinks",
-    //   of: [{ type: "cta" }],
-    // },
+    {
+      type: "array",
+      name: "footerLinks",
+      of: [{ type: "cta" }],
+    },
   ],
 };

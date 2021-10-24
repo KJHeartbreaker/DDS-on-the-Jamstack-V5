@@ -8,10 +8,10 @@ export default {
       type: "string",
       name: "title",
     },
-    // {
-    //   type: "array",
-    //   name: "navMenuItems",
-    //   of: [{ type: "cta" }],
-    // },
+    {
+      type: "array",
+      name: "navMenuItems",
+      of: [{ type: "cta" }],
+    },
   ],
 };

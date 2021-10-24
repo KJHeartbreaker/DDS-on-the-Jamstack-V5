@@ -8,7 +8,7 @@ export default {
       type: "reference",
       title: "Equipment",
       description: "Which Equipment are we referencing?",
-      to: [{ type: "usedEquipment" }],
+      to: [{ type: "used" }],
     },
   ],
   preview: {

@@ -4,7 +4,7 @@ import { Container } from "../../styles/Wrappers";
 
 export const Nav = styled.nav`
   display: grid;
-  grid-template-rows: "60px";
+  /* grid-template-rows: "60px"; */
   grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
@@ -37,6 +37,7 @@ export const PrimaryNav = styled(Container)`
   margin: 0;
   padding-left: 0;
   padding-right: 0;
+  /* height: 90px; */
 
   li {
     list-style: none;
@@ -46,25 +47,25 @@ export const PrimaryNav = styled(Container)`
 
   a {
     text-decoration: none;
-    color: var(--dark-grey);
     font-weight: 400;
+    font-family: "Oswald", sans-serif;
   }
 
   @media ${device.sm} {
     display: grid;
-    grid-template-columns: 25% 1fr;
-    grid-template-rows: 50px 50px;
-    grid-column-gap: 100px;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 90px;
+    /* grid-template-rows: 50px 50px; */
+    /* grid-column-gap: 100px; */
     grid-row-start: 1;
-    position: absolute;
-    top: 0;
+    position: sticky;
+    /* top: 0; */
   }
 
   @media ${device.md} {
     position: relative;
-    grid-template-rows: 70px;
     grid-column-gap: unset;
-    grid-template-columns: max(180px) 1fr;
+    /* grid-template-columns: max(180px) 1fr; */
     height: 100%;
     margin: 0 auto;
   }
@@ -78,7 +79,7 @@ export const PrimaryNav = styled(Container)`
 
   @media ${device.xl} {
     max-width: 1440px;
-    grid-template-columns: max(200px) 1fr;
+    grid-template-columns: max(250px) 1fr;
   }
 
   @media ${device.xxl} {
@@ -91,12 +92,13 @@ export const LogoContainer = styled.div`
   flex-grow: 1;
   align-items: center;
   padding: 10px;
-  height: 60px;
+  height: 70px;
+  width: 250px;
 
   @media ${device.sm} {
     grid-column-start: 1;
     grid-row-start: 1;
-    grid-row-end: span 2;
+    /* grid-row-end: span 2; */
     align-items: center;
     justify-content: center;
     padding: unset;
@@ -109,25 +111,45 @@ export const LogoContainer = styled.div`
   }
 
   a {
-    display: flex;
-    width: 150px;
-    height: 100%;
+    /* display: flex; */
+    width: 250px;
+    height: 70px;
     justify-content: center;
     align-items: center;
+    display: grid;
+    grid-template-columns: 100px 150px;
 
     svg {
+      justify-content: center;
+      align-items: center;
       height: 100%;
       width: 100%;
     }
 
-    @media ${device.sm} {
-      width: 100%;
-      padding: 10px;
-      height: 100px;
+    .logo-top {
+      font-family: "EB Garamond", serif;
+      font-size: 2em;
+      text-transform: uppercase;
+      line-height: 0.9;
+      letter-spacing: 0.2em;
     }
 
-    @media ${device.md} {
-      height: 70px;
+    .logo-bottom {
+      font-family: "Oswald", serif;
+      font-weight: 700;
+      font-size: 1.3em;
+      text-transform: uppercase;
+    }
+
+    p.logo-top,
+    p.logo-bottom {
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    @media ${device.sm} {
+      width: 100%;
     }
 
     @media ${device.lg} {
@@ -142,15 +164,16 @@ export const MenuItems = styled.ul`
   @media ${device.sm} {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    margin: 0;
+    justify-content: flex-end;
+    margin-right: 20px;
     padding-left: 0;
 
     a {
+      margin: 0 20px;
+
       &:hover,
       &.active {
-        color: var(--green);
-        border-bottom: 2px solid var(--dark-grey);
+        border-bottom: 2px solid var(--black);
         padding-bottom: 14px;
       }
     }
@@ -159,9 +182,13 @@ export const MenuItems = styled.ul`
       a {
         &:hover,
         &.active {
-          padding-bottom: 24px;
+          padding-bottom: 10px;
         }
       }
+    }
+
+    @media ${device.lg} {
+      margin-right: 0;
     }
   }
 `;
@@ -211,7 +238,7 @@ export const MobileMenuIcon = styled.div`
 
 export const MobileMenuDropdown = styled.div`
   position: absolute;
-  top: 60px;
+  top: 80px;
   left: 0;
   right: 0;
   background: #fff;
@@ -227,18 +254,13 @@ export const MobileMenuDropdown = styled.div`
 
     li {
       height: 70px;
-      border-bottom: 1px solid var(--dark-grey);
+      border-bottom: 1px solid var(--black);
       display: flex;
       justify-content: flex-start;
       align-items: center;
 
       a {
         text-decoration: none;
-        color: var(--dark-grey);
-
-        &.active {
-          color: var(--green);
-        }
       }
 
       button {

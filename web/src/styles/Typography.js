@@ -1,24 +1,25 @@
-import { createGlobalStyle } from 'styled-components'
-import { device } from './Breakpoints'
+import { createGlobalStyle } from "styled-components";
+import { device } from "./Breakpoints";
 
 const Typography = createGlobalStyle`
     html {
         font-size: var(--font-base-size);
-        color: var(--dark-grey);
-        font-family: myriad-pro, sans-serif;
+        color: var(--black);
+        font-family: 'Esteban', serif;
         font-display: auto;
         font-style: normal;
         font-weight: 400;
     }
 
     p, li, time {
-        font-size: var(--font-base-size);
+        font-size: 1.2em;
         line-height: var(--font-base-line-height);
         font-weight: 100;
     }
 
+
     h1,h2,h3,h4 {
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Oswald', sans-serif;
         font-weight: 400;
         margin: 0;
     }
@@ -55,14 +56,18 @@ const Typography = createGlobalStyle`
     }
 
     a {
-        color: var(--green);
+        color: var(--black);
         /* Chrome renders this weird with this font, so we turn it off */
         text-decoration-skip-ink: none;
         cursor: pointer;
+
+        &:hover {
+            color: var(--blue);
+        }
     }
 
     strong {
-        font-family: myriad-pro-semi-condensed, sans-serif;
+        font-family: 'Oswald'-semi-condensed, sans-serif;
 		font-weight: 700;
     }
 
@@ -96,6 +101,6 @@ const Typography = createGlobalStyle`
         --font-title1-mobile-size: calc(40 / var(--unit) * 1rem); /* 40px */
         --font-title1-mobile-line-height: calc(48 / 48); /* 48px */
     }
-`
+`;
 
-export default Typography
+export default Typography;

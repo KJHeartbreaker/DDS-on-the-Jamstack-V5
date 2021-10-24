@@ -25,8 +25,6 @@ export default function Hero({
   backgroundColour,
 }) {
   const theme = backgroundColour ? backgroundColour : "";
-  console.log("backgroundColour: ", backgroundColour);
-
   return (
     <>
       <Wrapper className={theme}>

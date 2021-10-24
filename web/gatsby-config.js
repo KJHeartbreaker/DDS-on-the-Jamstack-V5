@@ -21,5 +21,38 @@ module.exports = {
         overlayDrafts: !isProd,
       },
     },
+    `gatsby-plugin-styled-components`,
+    // `gatsby-plugin-sanity-image`,
+    `gatsby-plugin-netlify`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.desertdrillingsupply.com",
+        sitemap: "https://www.desertdrillingsupply.com/sitemap.xml",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        // useAutoGen: required 'true' to use autogen
+        useAutoGen: true,
+        // autoGenHomeLabel: optional 'Home' is default
+        autoGenHomeLabel: `Root`,
+        // exclude: optional, include this array to exclude paths you don't want to
+        // generate breadcrumbs for (see below for details).
+        exclude: [
+          `**/dev-404-page/**`,
+          `**/404/**`,
+          `**/404.html`,
+          `**/offline-plugin-app-shell-fallback/**`,
+        ],
+        // isMatchOptions: optional, include this object to configure the wildcard-match library.
+        excludeOptions: {
+          separator: ".",
+        },
+        trailingSlashes: true,
+      },
+    },
+    `gatsby-plugin-force-trailing-slashes`,
   ],
 };

@@ -1,23 +1,20 @@
-const { isFuture } = require("date-fns");
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
-const { format } = require("date-fns");
-
-async function createBlogPostPages(graphql, actions) {
+async function createLandingPages(
+  pathPrefix = "./",
+  graphql,
+  actions,
+  reporter
+) {
   const { createPage } = actions;
+
   const result = await graphql(`
     {
-      allSanityPost(
-        filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
-      ) {
+      allSanityPage(filter: { slug: { current: { ne: null } } }) {
         edges {
           node {
             id
-            publishedAt
+            includeInSitemap
+            disallowRobots
+            _updatedAt(formatString: "MMM DD, YYYY")
             slug {
               current
             }
@@ -29,23 +26,32 @@ async function createBlogPostPages(graphql, actions) {
 
   if (result.errors) throw result.errors;
 
-  const postEdges = (result.data.allSanityPost || {}).edges || [];
+  const pageEdges = (result.data.allSanityPage || {}).edges || [];
 
-  postEdges
-    .filter((edge) => !isFuture(new Date(edge.node.publishedAt)))
-    .forEach((edge) => {
-      const { id, slug = {}, publishedAt } = edge.node;
-      const dateSegment = format(new Date(publishedAt), "yyyy/MM");
-      const path = `/blog/${dateSegment}/${slug.current}/`;
+  pageEdges.forEach((edge) => {
+    const {
+      id,
+      includeInSitemap,
+      disallowRobots,
+      _updatedAt,
+      slug = {},
+    } = edge.node;
+    const path = [pathPrefix, slug.current, "/"].join("");
+    reporter.info(`Creating landing page: ${path}`);
 
-      createPage({
-        path,
-        component: require.resolve("./src/templates/blog-post.js"),
-        context: { id },
-      });
+    createPage({
+      path,
+      component: require.resolve("./src/templates/page.js"),
+      context: {
+        id,
+        includeInSitemap,
+        disallowRobots,
+        _updatedAt,
+      },
     });
+  });
 }
 
-exports.createPages = async ({ graphql, actions }) => {
-  await createBlogPostPages(graphql, actions);
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  await createLandingPages("/", graphql, actions, reporter);
 };

@@ -5,7 +5,14 @@ import { graphql, useStaticQuery } from "gatsby";
 import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
 
-function SEO({ description, lang, meta, keywords, title, image }) {
+export default function EssEeOh({
+  description,
+  lang,
+  meta,
+  keywords,
+  title,
+  image,
+}) {
   const { site } = useStaticQuery(detailsQuery) || {};
 
   const metaDescription = description || site.description || "";
@@ -71,13 +78,13 @@ function SEO({ description, lang, meta, keywords, title, image }) {
   );
 }
 
-SEO.defaultProps = {
+EssEeOh.defaultProps = {
   lang: "en",
   meta: [],
   keywords: [],
 };
 
-SEO.propTypes = {
+EssEeOh.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.array,
@@ -85,16 +92,18 @@ SEO.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default SEO;
-
 const detailsQuery = graphql`
   query DefaultSEOQuery {
     site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
       title
       description
       keywords
-      author {
-        name
+      openGraph {
+        title
+        description
+        image {
+          ...SanityImage
+        }
       }
     }
   }

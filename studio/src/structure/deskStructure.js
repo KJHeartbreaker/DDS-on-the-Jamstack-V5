@@ -1,5 +1,5 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { MdSettings } from "react-icons/md";
+// import { MdSettings } from "react-icons/md";
 import { MdPerson, MdDescription, MdLocalOffer } from "react-icons/md";
 import { GoBrowser as GoHome, GoSettings } from "react-icons/go";
 import IframePreview from "../previews/IframePreview";

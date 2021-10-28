@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { navigate } from "gatsby";
 
 interface Profile {
   name: string;
@@ -12,10 +13,34 @@ export default function ContactForm({ title }) {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<Profile>();
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
+
   const onSubmit = handleSubmit((data) => {
-    console.log("data: ", JSON.stringify(data));
+    // console.log("data: ", JSON.stringify(data));
+    fetch(`/`, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact-form", ...data }),
+    })
+      .then((response) => {
+        navigate("/success/");
+        reset();
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    event.preventDefault();
   });
   return (
     <form

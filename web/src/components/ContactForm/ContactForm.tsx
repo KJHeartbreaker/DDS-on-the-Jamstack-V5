@@ -25,12 +25,14 @@ export default function ContactForm({ title }) {
       .join("&");
   };
 
-  const onSubmit = handleSubmit((data) => {
+  const handlePost = (formData, event) => {
+    console.log("data: ", formData);
+
     // console.log("data: ", JSON.stringify(data));
     fetch(`/`, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact-form", ...data }),
+      body: encode({ "form-name": "contact-form", ...formData }),
     })
       .then((response) => {
         navigate("/success/");
@@ -41,7 +43,10 @@ export default function ContactForm({ title }) {
         console.log(error);
       });
     event.preventDefault();
-  });
+  };
+
+  const onSubmit = handleSubmit(handlePost);
+
   return (
     <form
       onSubmit={onSubmit}

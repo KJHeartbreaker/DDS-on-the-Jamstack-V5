@@ -26,8 +26,6 @@ export default function ContactForm({ title }) {
   };
 
   const handlePost = (formData, event) => {
-    console.log("data: ", formData);
-
     // console.log("data: ", JSON.stringify(data));
     fetch(`/`, {
       method: "POST",

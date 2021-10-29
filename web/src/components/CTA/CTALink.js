@@ -58,8 +58,6 @@ export default function CTALink({
 
   let navigateTo = landingPageRoute.slug.current || link || "#";
 
-  console.log("fileDownload: ", fileDownload);
-
   if (kind === "button") {
     return (
       <DDSButton

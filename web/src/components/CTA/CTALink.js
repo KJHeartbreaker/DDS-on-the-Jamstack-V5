@@ -41,8 +41,6 @@ export default function CTALink({
   kind,
   activeClassName,
 }) {
-  let navigateTo = landingPageRoute.slug.current || link || "#";
-
   if (fileDownload && kind === "button") {
     return (
       <DDSDownload
@@ -57,6 +55,10 @@ export default function CTALink({
       </DDSDownload>
     );
   }
+
+  let navigateTo = landingPageRoute.slug.current || link || "#";
+
+  console.log("fileDownload: ", fileDownload);
 
   if (kind === "button") {
     return (

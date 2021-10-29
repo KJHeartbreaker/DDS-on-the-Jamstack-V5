@@ -1,4 +1,4 @@
-import { FiGrid, FiHelpCircle } from "react-icons/fi";
+import { FiGrid } from "react-icons/fi";
 
 export default {
   title: "Content Row",
@@ -6,15 +6,6 @@ export default {
   type: "object",
   icon: FiGrid,
   fields: [
-    // {
-    //   name: "gridNote",
-    //   type: "note",
-    //   options: {
-    //     icon: FiHelpCircle,
-    //     headline: "What’s this",
-    //     message: `Each content row is set up to accommodate 1-4 columns. Contact forms are only recommended if there are two content blocks. Otherwise, use the text block.`,
-    //   },
-    // },
     {
       title: "Blocks",
       name: "blocks",

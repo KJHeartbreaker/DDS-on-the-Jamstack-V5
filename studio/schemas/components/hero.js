@@ -14,23 +14,6 @@ export default {
       type: "boolean",
     },
     {
-      title: "Color List",
-      description: "Pick a color",
-      name: "colorlist",
-      type: "colorlist", // required
-      options: {
-        borderradius: {
-          outer: "100%",
-          inner: "100%",
-        },
-        list: [
-          { title: "Green", value: "#80bc00", light: "#cee59c" },
-          { title: "DarkGrey", value: "#383838", light: "#7b7b7d" },
-          { title: "Grey", value: "#96999e", light: "#eaebec" },
-        ],
-      },
-    },
-    {
       title: "Background Colour",
       type: "string",
       name: "backgroundColour",

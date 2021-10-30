@@ -76,6 +76,9 @@ export default function Page(props) {
         case "equipmentGrid":
           el = <EquipmentGrid key={c._key} {...c} />;
           break;
+        // case "customComponentContainer":
+        //   el = <CustomComponent key={c._key} fullWidth={c.fullWidth} {...c} />;
+        //   break;
         default:
           el = null;
       }

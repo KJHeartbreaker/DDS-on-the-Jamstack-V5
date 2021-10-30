@@ -37,7 +37,12 @@ export default {
       type: "array",
       title: "Page sections",
       description: "Add, edit, and reorder sections",
-      of: [{ type: "hero" }, { type: "grid" }, { type: "equipmentGrid" }],
+      of: [
+        { type: "hero" },
+        { type: "grid" },
+        { type: "equipmentGrid" },
+        { type: "customComponentContainer" },
+      ],
     },
     {
       title: "Use site title?",

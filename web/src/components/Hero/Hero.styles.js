@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { device } from "../../styles/Breakpoints";
 import { Container, HeroWrapper } from "../../styles/Wrappers";
 
@@ -28,7 +28,6 @@ export const ParaHeroContainer = styled.div`
   width: 100%;
 
   .react-parallax {
-    border: 2px solid red;
     width: 100%;
     height: 100vh;
 

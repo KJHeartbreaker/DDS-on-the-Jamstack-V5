@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "../containers/Layout/Layout";
 import GraphQLErrorList from "../components/graphql-error-list";
 import UsedEquipmentComponent from "../components/UsedEqipment/UsedEquipmentComponent";
 
@@ -91,9 +90,5 @@ export default function EquipmentPage(props) {
   //   image = site.openGraph.image;
   // }
 
-  return (
-    // <Layout>
-    <UsedEquipmentComponent {...post} />
-    // </Layout>
-  );
+  return <UsedEquipmentComponent {...post} />;
 }

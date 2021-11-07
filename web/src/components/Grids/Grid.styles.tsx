@@ -4,104 +4,102 @@ import { Container } from "../../styles/Wrappers";
 
 export const GridComponentContainer = styled(Container)`
   /* width: 100%; */
+  box-sizing: border-box;
 `;
 
 export const XColumnsUp = styled.div`
   display: grid;
   width: 100%;
-  gap: 20px;
-
-  border: 2px solid red;
 
   img {
     width: 100%;
   }
 
   &.twoUp {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 100%;
+
+    @media ${device.sm} {
+      grid-template-columns: 50% 50%;
+    }
   }
 
   &.threeUp {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 100%;
+
+    @media ${device.sm} {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 
   &.fourUp {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 100%;
+
+    @media ${device.sm} {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media ${device.lg} {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
   }
 `;
 
 export const Panel = styled.div`
   width: 100%;
-  border: 2px solid rebeccapurple;
-`;
+  box-sizing: border-box;
+  padding: 20px;
 
-export const TwoPanelRow = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 60px;
-
-  @media ${device.sm} {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    margin-bottom: 100px;
-
-    &.sixtyForty {
-      grid-template-columns: 40% 60%;
-
-      &.flipped {
-        grid-template-columns: 60% 40%;
-      }
-    }
-
-    &.fiftyFiveFortyFive {
-      grid-template-columns: 45% 55%;
-
-      &.flipped {
-        grid-template-columns: 55% 45%;
-      }
-    }
-  }
-`;
-
-export const CopyPanel = styled.div`
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  order: 2;
+  align-items: center;
 
-  img {
-    max-width: 100px;
+  h2 {
+    text-align: center;
   }
 
-  p.label,
-  h2.field-header {
-    display: none;
-  }
-
-  div.platforms {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-
-    a {
-      margin-right: 20px;
-      text-decoration: none;
-      cursor: pointer;
-    }
-  }
-
-  @media ${device.sm} {
-    padding: 24px;
-    order: unset;
-
-    p.label,
-    h2.field-header {
-      display: block;
-    }
+  a {
+    margin: 0 auto;
   }
 `;
+
+// export const CopyPanel = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: flex-start;
+//   order: 2;
+
+//   img {
+//     max-width: 100px;
+//   }
+
+//   p.label,
+//   h2.field-header {
+//     display: none;
+//   }
+
+//   div.platforms {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: flex-start;
+
+//     a {
+//       margin-right: 20px;
+//       text-decoration: none;
+//       cursor: pointer;
+//     }
+//   }
+
+//   @media ${device.sm} {
+//     padding: 24px;
+//     order: unset;
+
+//     p.label,
+//     h2.field-header {
+//       display: block;
+//     }
+//   }
+// `;
 
 export const FormPanel = styled.div`
   display: flex;
@@ -204,13 +202,37 @@ export const MediaPanel = styled.div`
 export const EquipmentGridCard = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  border: 2px solid var(--brown);
+  padding: 10px;
+  box-sizing: border-box;
 
-  img {
-    height: 350px;
+  .gatsby-image-wrapper.gatsby-image-wrapper-constrained {
+    width: 100%;
+  }
+
+  @media ${device.sm} {
+    img {
+      height: 450px;
+      /* width: 100%; */
+    }
   }
 `;
 
 export const EquipmentGridContainer = styled(Container)`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  h3 {
+    margin-bottom: 20px;
+  }
+
+  @media ${device.sm} {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media ${device.lg} {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;

@@ -1,13 +1,11 @@
 /* eslint-disable import/no-unresolved */
 import React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import PortableText from "../portableText";
 import SwipeableTextMobileStepper from "../Carousel/Carousel";
 import Figure from "../Figure/Figure";
-import { Grid } from "@mui/material";
 
 import FormModal from "../Modal/FormModal";
+import { UsedEquipmentWrapper, Panel, Panels } from "./UsedEquipment.styles";
 
 export default function UsedEquipmentComponent({
   title,
@@ -15,18 +13,18 @@ export default function UsedEquipmentComponent({
   _rawImages,
 }) {
   return (
-    <Box>
+    <UsedEquipmentWrapper>
       {title && <h1>{title}</h1>}
-      <Grid container>
-        <Grid item xs={12} sm={5}>
+      <Panels>
+        <Panel>
           {_rawTagline && (
             <>
               <PortableText blocks={_rawTagline.portableTextBlock} />
               <FormModal />
             </>
           )}
-        </Grid>
-        <Grid item xs={12} sm={7}>
+        </Panel>
+        <Panel>
           {_rawImages.length > 1 ? (
             <SwipeableTextMobileStepper images={_rawImages} />
           ) : (
@@ -36,8 +34,8 @@ export default function UsedEquipmentComponent({
               {..._rawImages[0]}
             />
           )}
-        </Grid>
-      </Grid>
-    </Box>
+        </Panel>
+      </Panels>
+    </UsedEquipmentWrapper>
   );
 }

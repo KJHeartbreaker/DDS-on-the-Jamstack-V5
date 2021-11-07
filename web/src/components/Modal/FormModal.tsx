@@ -1,17 +1,36 @@
 /* eslint-disable import/no-unresolved */
 import * as React from "react";
+import { navigate } from "gatsby";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-import { Box } from "@mui/system";
+// import { Box } from "@mui/system";
 import ContactForm from "../ContactForm/ContactForm";
+
+import ButtonGroup from "@mui/material/ButtonGroup";
+import Box from "@mui/material/Box";
+import { ThemeProvider } from "@mui/material/styles";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
+import { createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      // Purple and green play nicely together.
+      main: "#3d547a",
+    },
+    secondary: {
+      // This is green.A700 as hex.
+      main: "#2e1b0c",
+    },
+  },
+});
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  // minWidth: "300px",
-  // maxWidth: "800px",
   bgcolor: "#fff",
   border: "2px solid #000",
   boxShadow: 24,
@@ -25,11 +44,43 @@ export default function FormModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  // const { title, tagline, images } = equipment;
+
+  const buttons = [
+    <Button
+      key="1"
+      color="primary"
+      variant="outlined"
+      onClick={() => navigate(-1)}
+      startIcon={<ArrowBackIcon />}
+    >
+      Go back
+    </Button>,
+    <Button key="2" color="secondary" variant="contained" onClick={handleOpen}>
+      Contact
+    </Button>,
+  ];
 
   return (
     <div>
-      <Button onClick={handleOpen}>Contact</Button>
+      <ThemeProvider theme={theme}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            "& > *": {
+              mt: 5,
+            },
+          }}
+        >
+          <ButtonGroup
+            orientation="horizontal"
+            aria-label="horizontal button group"
+          >
+            {buttons}
+          </ButtonGroup>
+        </Box>
+      </ThemeProvider>
 
       <Modal
         open={open}

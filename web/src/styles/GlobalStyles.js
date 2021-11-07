@@ -3,9 +3,6 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
     :root {
-        /* Colours */
-        /* Each brand colour will have four variants. The darkest of which gets the variable name, and the lighter variants will go from darkest (22), to lightest (44). This is not based on any naming convention, it just seems easy to follow, and feels cooler than (1, 2, 3), or (light, lighter, lightest), etc... */
-
         --brown: #2e1b0c;
         --tan: #e3c4a8;
         --dark-blue: #3d547a;
@@ -49,14 +46,18 @@ const GlobalStyles = createGlobalStyle`
         background-color: var(--dark-blue);
         color: var(--white);
         padding: 10px;
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Open Sans', sans-serif;
         font-size: var(--font-base-size);
         border: none;
         margin: 10px 0;
         box-sizing: border-box;
+        transition: 0.2s;
+        display: block;
+        width: fit-content;
 
         &:hover {
-		    background-color: var(--blue);
+		    background-color: var(--light-blue);
+            color: #000;
 	    }
     }
 `;

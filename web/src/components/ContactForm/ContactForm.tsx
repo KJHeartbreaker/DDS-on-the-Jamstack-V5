@@ -1,5 +1,16 @@
+/* eslint-disable import/no-unresolved */
+import { ViewDaySharp } from "@mui/icons-material";
 import React from "react";
 import { useForm } from "react-hook-form";
+import {
+  Label,
+  FormInput,
+  FormTextArea,
+  ReactFormWrapper,
+  FormGroup,
+  Error,
+} from "./ContactForm.styles";
+import ThankYou from "./ThankYou";
 
 interface Profile {
   name: string;
@@ -9,74 +20,91 @@ interface Profile {
 }
 
 export default function ContactForm({ title }) {
+  const [message, setMessage] = React.useState("");
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<Profile>();
-  const onSubmit = handleSubmit((data) => {
-    console.log("data: ", JSON.stringify(data));
+
+  // const thankYou = (name) => <ThankYou name={name} />
+
+  const onSubmit = handleSubmit((data, e) => {
+    e.preventDefault();
+    setMessage(data.name);
+    reset();
   });
   return (
-    <form
-      onSubmit={onSubmit}
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-    >
-      <input type="hidden" name="form-name" value="contact" />
-      <div>
-        <label>Name</label>
-        <input {...register("name")} placeholder="Kotaro" />
-        {errors?.name && <p>{errors.name.message}</p>}
-      </div>
+    <ReactFormWrapper>
+      {message.length > 0 ? (
+        <ThankYou name={message} />
+      ) : (
+        <>
+          <h2>{title}</h2>
+          <form
+            onSubmit={onSubmit}
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <FormInput type="hidden" name="form-name" value="contact" />
+            <FormGroup>
+              <FormInput {...register("name")} />
+              <Label>Name</Label>
+              {errors?.name && <Error>{errors.name.message}</Error>}
+            </FormGroup>
 
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          {...register("email", {
-            required: `Email is required`,
-            pattern: {
-              value: /\S+@\S+\.\S+/,
-              message: "Please enter a valid email address",
-            },
-          })}
-          placeholder="sales@desertdrillingsupply.com"
-          type="email"
-        />
-      </div>
+            <FormGroup>
+              <FormInput
+                {...register("email", {
+                  required: `Email is required`,
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: "Please enter a valid email address",
+                  },
+                })}
+                type="email"
+              />
+              <Label htmlFor="email">Email</Label>
+            </FormGroup>
 
-      <div>
-        <label htmlFor="phone">phone</label>
-        <input
-          {...register("phone", {
-            required: `Phone number is required`,
-            minLength: { value: 8, message: "Minimum length is 8 characters" },
-            maxLength: {
-              value: 15,
-              message: "Maximum length is 15 characters",
-            },
-            valueAsNumber: true,
-          })}
-          placeholder="5555551313"
-          type="phone"
-        />
-      </div>
+            <FormGroup>
+              <FormInput
+                {...register("phone", {
+                  required: `Phone number is required`,
+                  minLength: {
+                    value: 8,
+                    message: "Minimum length is 8 characters",
+                  },
+                  maxLength: {
+                    value: 15,
+                    message: "Maximum length is 15 characters",
+                  },
+                  valueAsNumber: true,
+                })}
+                type="phone"
+              />
+              <Label htmlFor="phone">Phone</Label>
+            </FormGroup>
 
-      <div>
-        <label>Last Name</label>
-        <textarea
-          {...register("message", {
-            required: `A message is required`,
-            maxLength: {
-              value: 2000,
-              message: "Maximum length is 2000 characters",
-            },
-          })}
-          placeholder="Type your message here..."
-        />
-      </div>
+            <FormGroup>
+              <FormTextArea
+                {...register("message", {
+                  required: `A message is required`,
+                  maxLength: {
+                    value: 2000,
+                    message: "Maximum length is 2000 characters",
+                  },
+                })}
+                placeholder="Type your message here..."
+              />
+              <Label>Message</Label>
+            </FormGroup>
 
-      <input type="submit" />
-    </form>
+            <FormInput type="submit" />
+          </form>
+        </>
+      )}
+    </ReactFormWrapper>
   );
 }

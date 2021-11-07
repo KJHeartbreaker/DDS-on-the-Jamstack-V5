@@ -26,6 +26,7 @@ export const icons = {
   AllIcon,
 };
 
+// const pages = S.listItem().title("Page Builder").icon(GiCobweb);
 const pages = S.listItem()
   .title("Page Builder")
   .icon(GiCobweb)

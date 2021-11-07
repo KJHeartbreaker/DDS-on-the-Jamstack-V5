@@ -97,6 +97,105 @@ export const RightSide = styled.div`
   }
 `;
 
+export const ContactHeroContentContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 1200px;
+  order: 2;
+  padding: 24px;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  ${LeftSide} {
+    width: 50%;
+
+    h2,
+    p,
+    a {
+      color: #fff;
+    }
+
+    .phone,
+    .email,
+    .mail {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-bottom: 10px;
+
+      p {
+        margin: 0;
+      }
+
+      span {
+        font-size: 1.3em;
+        padding-right: 20px;
+        color: var(--blue);
+      }
+    }
+  }
+
+  ${RightSide} {
+    width: 50%;
+
+    /* form {
+      width: 500px;
+      margin: 20px;
+
+      > div {
+        position: relative;
+        overflow: hidden;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border: 2px solid gray;
+        background: none;
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        padding: 8px 12px;
+        outline: 0;
+        &:valid {
+          // Hides the label
+          background: white;
+        }
+        &:focus {
+          border-color: #f06d06;
+        }
+        &:focus + label {
+          background: #f06d06;
+          color: white;
+          font-size: 70%;
+          padding: 1px 6px;
+          z-index: 2;
+          text-transform: uppercase;
+        }
+      }
+
+      label {
+        transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s,
+          right 0.2s, left 0.2s;
+        position: absolute;
+        color: #999;
+        padding: 7px 6px;
+      }
+
+      textarea {
+        display: block;
+        resize: vertical;
+      }
+    } */
+  }
+`;
+
 export const Wrapper = styled(HeroWrapper)`
   display: flex;
   justify-content: center;

@@ -41,7 +41,10 @@ export const query = graphql`
       }
     }
     page: sanityPage(_id: { regex: "/homepage/" }) {
-      ...PageInfo
+      # ...PageInfo
+          id
+    title
+    _rawContent(resolveReferences: { maxDepth: 10 })
       _type
     }
     # posts: allSanityPost(

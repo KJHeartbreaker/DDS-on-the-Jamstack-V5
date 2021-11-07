@@ -28,8 +28,17 @@ export default {
   ],
   preview: {
     select: {
-      imageUrl: "asset.url",
       title: "caption",
+      altTitle: "alt",
+      media: "asset",
+    },
+    prepare({ title, altTitle, media }) {
+      console.log("media: ", media);
+
+      return {
+        title: `${title ? title : altTitle}`,
+        media,
+      };
     },
   },
 };

@@ -41,6 +41,8 @@ export default {
                 title: "URL",
                 fields: [
                   {
+                    validation: (Rule) =>
+                      Rule.uri({ scheme: ["http", "https", "mailto", "tel"] }),
                     title: "URL",
                     name: "href",
                     type: "url",

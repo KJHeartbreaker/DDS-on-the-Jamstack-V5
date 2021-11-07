@@ -101,9 +101,9 @@ const detailsQuery = graphql`
       openGraph {
         title
         description
-        image {
-          ...SanityImage
-        }
+        # image {
+        #   ...SanityImage
+        # }
       }
     }
   }

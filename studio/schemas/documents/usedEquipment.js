@@ -1,4 +1,4 @@
-// import PriceInput from "../../helpers/PriceInput";
+import PriceInput from "../../helpers/PriceInput";
 
 export default {
   name: "used",
@@ -27,14 +27,14 @@ export default {
       title: "Description",
       type: "pagePortableText",
     },
-    // {
-    //   name: "price",
-    //   title: "Price",
-    //   type: "number",
-    //   description:
-    //     "Price in cents. If no price is given, it will say 'Call for pricing'",
-    //   inputComponent: PriceInput,
-    // },
+    {
+      name: "price",
+      title: "Price",
+      type: "number",
+      description:
+        "Price in cents. If no price is given, it will say 'Call for pricing'",
+      inputComponent: PriceInput,
+    },
     {
       name: "images",
       title: "Images",

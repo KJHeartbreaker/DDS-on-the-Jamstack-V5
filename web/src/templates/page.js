@@ -8,12 +8,16 @@ import Hero from "../components/Hero/Hero";
 import EssEeOh from "../components/seo";
 import LayoutGrid from "../components/Grids/LayoutGrid";
 import EquipmentGrid from "../components/Grids/EquipmentGrid";
+import CustomComponent from "../components/CustomComponentContainer/CustomComponent";
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
     page: sanityPage(id: { eq: $id }) {
       title
-      ...PageInfo
+      # ...PageInfo
+      id
+      title
+      _rawContent(resolveReferences: { maxDepth: 10 })
       slug {
         current
       }
@@ -76,9 +80,9 @@ export default function Page(props) {
         case "equipmentGrid":
           el = <EquipmentGrid key={c._key} {...c} />;
           break;
-        // case "customComponentContainer":
-        //   el = <CustomComponent key={c._key} fullWidth={c.fullWidth} {...c} />;
-        //   break;
+        case "customComponentContainer":
+          el = <CustomComponent key={c._key} fullWidth={c.fullWidth} {...c} />;
+          break;
         default:
           el = null;
       }

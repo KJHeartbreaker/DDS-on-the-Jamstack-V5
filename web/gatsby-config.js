@@ -58,7 +58,7 @@ module.exports = {
       options: {
         fonts: [
           `EB Garamond:400,600`,
-          `Esteban:400`,
+          `Open Sans:400`,
           `Oswald:300,400,600,700`, // you can also specify font weights and styles
         ],
         display: "swap",

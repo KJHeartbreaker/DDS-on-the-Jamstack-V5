@@ -5,7 +5,7 @@ const Typography = createGlobalStyle`
     html {
         font-size: var(--font-base-size);
         color: var(--black);
-        font-family: 'Esteban', serif;
+        font-family: 'Open Sans', serif;
         font-display: auto;
         font-style: normal;
         font-weight: 400;

@@ -28,7 +28,11 @@ export default function LayoutGrid({ blocks }) {
         {blocks.map((block, i) => (
           <Panel key={i}>
             {block._type === "pagePortableText" && (
-              <PortableText blocks={block.portableTextBlock} {...block} />
+              <PortableText
+                className="copyBlock"
+                blocks={block.portableTextBlock}
+                {...block}
+              />
             )}
             {block._type === "mainImage" && (
               <Figure asset={block.asset} alt={block.alt} {...block} />

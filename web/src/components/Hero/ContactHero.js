@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from "react";
 import { PropTypes } from "prop-types";
 
@@ -18,11 +19,16 @@ import {
 import ParaHero from "./ParaHero";
 import ContactForm from "../ContactForm/ContactForm";
 
-export default function ContactHero({ illustration, backgroundColour }) {
+export default function ContactHero({
+  illustration,
+  backgroundColour,
+  contactForm,
+}) {
   const theme = backgroundColour ? backgroundColour : "";
   const phone = <FontAwesomeIcon icon={faPhone} />;
   const inbox = <FontAwesomeIcon icon={faInbox} />;
   const envelope = <FontAwesomeIcon icon={faEnvelope} />;
+  const { title } = contactForm;
   return (
     <Wrapper className={theme}>
       <ParaHeroContainer>
@@ -59,7 +65,7 @@ export default function ContactHero({ illustration, backgroundColour }) {
             </div>
           </LeftSide>
           <RightSide>
-            <ContactForm />
+            <ContactForm title={title} />
           </RightSide>
         </ContactHeroContentContainer>
         <ParaHero illustration={illustration} />

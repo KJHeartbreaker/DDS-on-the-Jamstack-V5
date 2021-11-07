@@ -6,6 +6,12 @@ import Typography from "./src/styles/Typography";
 export function wrapPageElement({ element, props }) {
   const { data } = props;
 
+  // TODO - this line is for the 404 page because data.page doesn't exist
+
+  if (!data || !data.page || !data.post || data.allSitePage) {
+    return;
+  }
+
   if (data.post) {
     return (
       <>
@@ -14,12 +20,6 @@ export function wrapPageElement({ element, props }) {
         <Layout {...props}>{element}</Layout>
       </>
     );
-  }
-
-  // TODO - this line is for the 404 page because data.page doesn't exist
-
-  if (!data || !data.page || data.allSitePage) {
-    return;
   }
 
   const { _type } = data.page;

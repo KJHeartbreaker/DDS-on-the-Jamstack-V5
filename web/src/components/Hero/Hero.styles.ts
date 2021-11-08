@@ -20,12 +20,18 @@ export const HeroContentContainer = styled(Container)`
 `;
 
 export const ParaHeroContainer = styled.div`
-  height: 100vh;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+  /* height: 100vh; */
+
+  @media ${device.md} {
+    flex-direction: row;
+    height: 100vh;
+  }
 
   .react-parallax {
     width: 100%;
@@ -49,11 +55,14 @@ export const Centered = styled.div`
   width: 100%;
   position: absolute;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 export const HeroCopy = styled.div`
   width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
 
   @media ${device.sm} {
     width: 60%;
@@ -96,22 +105,42 @@ export const RightSide = styled.div`
   }
 `;
 
+export const CopySide = styled(LeftSide)`
+  order: 1;
+  @media ${device.sm} {
+  }
+`;
+export const FormSide = styled(RightSide)`
+  order: 2;
+  @media ${device.sm} {
+  }
+`;
+
 export const ContactHeroContentContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  max-width: 1200px;
+  box-sizing: border-box;
   order: 2;
   padding: 24px;
   width: 100%;
-  position: absolute;
+  position: relative;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--brown);
 
-  ${LeftSide} {
-    width: 50%;
+  @media ${device.md} {
+    max-width: 950px;
+    position: absolute;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
 
+  @media ${device.lg} {
+    max-width: 1200px;
+  }
+
+  ${CopySide} {
     h2,
     p,
     a {
@@ -139,59 +168,17 @@ export const ContactHeroContentContainer = styled.div`
     }
   }
 
-  ${RightSide} {
-    width: 50%;
+  ${CopySide},
+  ${FormSide} {
+    flex: 1 0 100%;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
 
-    /* form {
-      width: 500px;
-      margin: 20px;
-
-      > div {
-        position: relative;
-        overflow: hidden;
-      }
-
-      input,
-      textarea {
-        width: 100%;
-        border: 2px solid gray;
-        background: none;
-        position: relative;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        padding: 8px 12px;
-        outline: 0;
-        &:valid {
-          // Hides the label
-          background: white;
-        }
-        &:focus {
-          border-color: #f06d06;
-        }
-        &:focus + label {
-          background: #f06d06;
-          color: white;
-          font-size: 70%;
-          padding: 1px 6px;
-          z-index: 2;
-          text-transform: uppercase;
-        }
-      }
-
-      label {
-        transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s,
-          right 0.2s, left 0.2s;
-        position: absolute;
-        color: #999;
-        padding: 7px 6px;
-      }
-
-      textarea {
-        display: block;
-        resize: vertical;
-      }
-    } */
+    @media ${device.md} {
+      padding: 10px;
+      flex: 1 0 50%;
+    }
   }
 `;
 
@@ -221,7 +208,7 @@ export const Wrapper = styled(HeroWrapper)`
     background-color: #e3c4a8;
   }
 
-  &.lightBlue {
+  &.lightBlueSolid {
     background-color: #b4d4ec;
   }
 

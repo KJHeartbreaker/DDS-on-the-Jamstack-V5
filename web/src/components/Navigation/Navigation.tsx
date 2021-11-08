@@ -12,7 +12,7 @@ import {
   MobileMenuIcon,
   MobileMenuDropdown,
 } from "./Navigation.styles";
-import LogoDark from "./LogoDark";
+
 import Logo from "../Logo/Logo";
 
 export default function PrimaryNavigation({ path, crumbs }) {

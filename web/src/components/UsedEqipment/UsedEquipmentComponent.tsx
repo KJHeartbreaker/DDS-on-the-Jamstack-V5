@@ -7,10 +7,15 @@ import Figure from "../Figure/Figure";
 import FormModal from "../Modal/FormModal";
 import { UsedEquipmentWrapper, Panel, Panels } from "./UsedEquipment.styles";
 
+const formatCurrency = (num) => {
+  return "$" + (num / 100).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+};
+
 export default function UsedEquipmentComponent({
   title,
   _rawTagline,
   _rawImages,
+  price,
 }) {
   return (
     <UsedEquipmentWrapper>
@@ -20,6 +25,19 @@ export default function UsedEquipmentComponent({
           {_rawTagline && (
             <>
               <PortableText blocks={_rawTagline.portableTextBlock} />
+              {price ? (
+                <>
+                  <p>
+                    <em className="price">{formatCurrency(price)}</em>
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p>
+                    <em className="price">Call for pricing</em>
+                  </p>
+                </>
+              )}
               <FormModal />
             </>
           )}

@@ -18,11 +18,11 @@ const navigation = S.listItem()
           .child(
             S.document().schemaType("nav").documentId("primaryNavigation")
           ),
-        S.documentListItem()
-          .schemaType("footer")
-          .title("Footer")
-          .icon(GiFootprint)
-          .child(S.document().schemaType("footer").documentId("footer")),
+        // S.documentListItem()
+        //   .schemaType("footer")
+        //   .title("Footer")
+        //   .icon(GiFootprint)
+        //   .child(S.document().schemaType("footer").documentId("footer")),
       ])
   );
 

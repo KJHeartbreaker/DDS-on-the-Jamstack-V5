@@ -1,8 +1,4 @@
-export { default as author } from "./author";
-export { default as category } from "./category";
+export { default as nav } from "./navigation";
 export { default as page } from "./page";
-export { default as post } from "./post";
 export { default as siteSettings } from "./siteSettings";
 export { default as usedEquipment } from "./usedEquipment";
-export { default as footer } from "./footer";
-export { default as nav } from "./navigation";

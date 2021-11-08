@@ -16,7 +16,6 @@ export const DDSDownload = styled.a`
   border: none;
   cursor: pointer;
 
-  /* font-size: var(--font-base-size); */
   &:hover {
     background-color: var(--blue);
   }
@@ -32,7 +31,6 @@ const buttonNavigation = (target) => {
 };
 
 export default function CTALink({
-  // route,
   link,
   landingPageRoute,
   fileDownload,
@@ -96,5 +94,4 @@ CTALink.propTypes = {
   activeClassName: PropTypes.string,
   landingPageRoute: PropTypes.object,
   fileDownload: PropTypes.object,
-  blogLink: PropTypes.bool,
 };

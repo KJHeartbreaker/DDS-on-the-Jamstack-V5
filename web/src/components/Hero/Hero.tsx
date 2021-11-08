@@ -1,5 +1,5 @@
+/* eslint-disable import/no-unresolved */
 import React from "react";
-import { PropTypes } from "prop-types";
 import PortableText from "../portableText";
 import CTALink from "../CTA/CTALink";
 
@@ -54,7 +54,7 @@ export default function Hero({
               )}
               {cta && cta.title && <CTALink {...cta} />}
             </LeftSide>
-            <RightSide nW={!illustration}>
+            <RightSide>
               {illustration && (
                 <Figure
                   asset={illustration.asset}
@@ -69,16 +69,3 @@ export default function Hero({
     </>
   );
 }
-
-Hero.propTypes = {
-  label: PropTypes.string,
-  heading: PropTypes.string,
-  tagline: PropTypes.object,
-  cta: PropTypes.object,
-  illustration: PropTypes.object,
-  video: PropTypes.object,
-  singleColumn: PropTypes.bool,
-  waveBelow: PropTypes.bool,
-  waveAbove: PropTypes.bool,
-  backgroundColour: PropTypes.string,
-};

@@ -1,8 +1,8 @@
 /* eslint-disable import/no-unresolved */
 import React from "react";
-import { PropTypes } from "prop-types";
 import { PageContentWrapper } from "../../styles/Wrappers";
 import PrimaryNavigation from "../../components/Navigation/Navigation";
+import Footer from "../../components/Footer/Footer";
 
 export default function Layout({ children, path, pageContext }) {
   const {
@@ -13,14 +13,7 @@ export default function Layout({ children, path, pageContext }) {
     <>
       <PrimaryNavigation path={path} crumbs={crumbs} />
       <PageContentWrapper>{children}</PageContentWrapper>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
-
-Layout.propTypes = {
-  path: PropTypes.string,
-  dbg: PropTypes.bool,
-  pageContext: PropTypes.object,
-  children: PropTypes.any,
-};

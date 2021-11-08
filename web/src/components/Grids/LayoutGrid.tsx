@@ -6,6 +6,8 @@ import Figure from "../Figure/Figure";
 import ContactForm from "../ContactForm/ContactForm";
 
 export default function LayoutGrid({ blocks }) {
+  const { center } = blocks;
+  const [centered, setCentered] = React.useState(false);
   const gridColumns = blocks.length;
 
   let columns;
@@ -22,15 +24,17 @@ export default function LayoutGrid({ blocks }) {
     columns = "fourUp";
   }
 
+  console.log("blocks: ", blocks);
+
   return (
     <GridComponentContainer>
       <XColumnsUp className={columns}>
         {blocks.map((block, i) => (
-          <Panel key={i}>
+          <Panel key={i} className={block.center ? "centered" : ""}>
             {block._type === "pagePortableText" && (
               <PortableText
-                className="copyBlock"
                 blocks={block.portableTextBlock}
+                // centered={block.center ? () => setCentered(true) : null}
                 {...block}
               />
             )}

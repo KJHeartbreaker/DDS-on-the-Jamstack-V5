@@ -81,6 +81,13 @@ export default {
       ],
     },
     {
+      name: "center",
+      title: "Center Text",
+      description:
+        "Setting this to true will center all of the text within this panel.",
+      type: "boolean",
+    },
+    {
       name: "disabled",
       title: "Disabled",
       description:

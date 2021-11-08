@@ -3,7 +3,6 @@ import * as React from "react";
 import { navigate } from "gatsby";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-// import { Box } from "@mui/system";
 import ContactForm from "../ContactForm/ContactForm";
 
 import ButtonGroup from "@mui/material/ButtonGroup";
@@ -16,29 +15,13 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      // Purple and green play nicely together.
       main: "#3d547a",
     },
     secondary: {
-      // This is green.A700 as hex.
       main: "#2e1b0c",
     },
   },
 });
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  bgcolor: "#fff",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-};
 
 export default function FormModal() {
   const [open, setOpen] = React.useState(false);
@@ -55,7 +38,18 @@ export default function FormModal() {
     >
       Go back
     </Button>,
-    <Button key="2" color="secondary" variant="contained" onClick={handleOpen}>
+    <Button
+      key="2"
+      color="secondary"
+      variant="contained"
+      onClick={handleOpen}
+      sx={{
+        ":hover": {
+          bgcolor: "#e3c4a8",
+          color: "#000",
+        },
+      }}
+    >
       Contact
     </Button>,
   ];
@@ -88,7 +82,22 @@ export default function FormModal() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} width={{ xs: 300, sm: 500, md: 800 }}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            bgcolor: "#fff",
+            border: "2px solid #000",
+            boxShadow: 24,
+            p: 4,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          width={{ xs: 300, sm: 500, md: 800 }}
+        >
           <ContactForm title="Contact Sales" />
         </Box>
       </Modal>

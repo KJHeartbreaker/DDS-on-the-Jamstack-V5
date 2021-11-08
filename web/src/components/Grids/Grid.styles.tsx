@@ -60,46 +60,15 @@ export const Panel = styled.div`
   a {
     margin: 0 auto;
   }
+
+  &.centered {
+    text-align: center;
+
+    button {
+      margin: 0 auto;
+    }
+  }
 `;
-
-// export const CopyPanel = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: flex-start;
-//   order: 2;
-
-//   img {
-//     max-width: 100px;
-//   }
-
-//   p.label,
-//   h2.field-header {
-//     display: none;
-//   }
-
-//   div.platforms {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: flex-start;
-
-//     a {
-//       margin-right: 20px;
-//       text-decoration: none;
-//       cursor: pointer;
-//     }
-//   }
-
-//   @media ${device.sm} {
-//     padding: 24px;
-//     order: unset;
-
-//     p.label,
-//     h2.field-header {
-//       display: block;
-//     }
-//   }
-// `;
 
 export const FormPanel = styled.div`
   display: flex;
@@ -108,60 +77,6 @@ export const FormPanel = styled.div`
   align-items: flex-start;
   padding: 24px;
   order: 3;
-
-  form.mktoForm {
-    width: 100%;
-
-    div.mktoFormRow {
-      width: 100%;
-      /* height: 40px; */
-      /* margin-bottom: 25px; */
-
-      div.mktoFieldWrap {
-        display: flex;
-        flex-direction: column;
-
-        @media ${device.sm} {
-          display: grid;
-          grid-template-columns: 150px 1fr;
-        }
-
-        label.mktoLabel {
-          width: 100%;
-          margin-bottom: 10px;
-
-          @media ${device.sm} {
-            margin-bottom: 0;
-          }
-        }
-
-        input.mktoField {
-          width: 100%;
-          padding: 0;
-          margin: 0;
-          border: unset;
-          border-bottom: 1px solid var(--grey);
-        }
-      }
-    }
-
-    div.mktoButtonRow {
-      width: 100%;
-
-      span.mktoButtonWrap mktoSimple {
-        margin: 0;
-      }
-
-      button.mktoButton {
-        width: 100%;
-        background-color: var(--green);
-        color: #fff;
-        border: unset;
-        cursor: pointer;
-        padding: 10px;
-      }
-    }
-  }
 `;
 
 export const MediaPanel = styled.div`
@@ -182,21 +97,6 @@ export const MediaPanel = styled.div`
   img {
     height: auto;
   }
-
-  p.label,
-  h2.field-header {
-    display: block;
-  }
-
-  @media ${device.sm} {
-    order: unset;
-    flex-direction: row;
-
-    p.label,
-    h2.field-header {
-      display: none;
-    }
-  }
 `;
 
 export const EquipmentGridCard = styled.div`
@@ -214,12 +114,25 @@ export const EquipmentGridCard = styled.div`
   @media ${device.sm} {
     img {
       height: 450px;
-      /* width: 100%; */
     }
   }
 `;
 
 export const EquipmentGridContainer = styled(Container)`
+  h1 {
+    grid-column: 1 / span 1;
+    text-align: center;
+    margin-bottom: 30px;
+
+    @media ${device.sm} {
+      grid-column: 1 / span 2;
+    }
+
+    @media ${device.lg} {
+      grid-column: 1 / span 3;
+    }
+  }
+
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
@@ -229,10 +142,10 @@ export const EquipmentGridContainer = styled(Container)`
   }
 
   @media ${device.sm} {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
   }
 
   @media ${device.lg} {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 33.33% 33.33% 33.33%;
   }
 `;

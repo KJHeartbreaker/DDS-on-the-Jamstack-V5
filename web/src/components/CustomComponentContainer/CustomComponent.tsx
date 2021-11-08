@@ -1,5 +1,5 @@
+/* eslint-disable import/no-unresolved */
 import React from "react";
-import { PropTypes } from "prop-types";
 import styled from "styled-components";
 import { Container, HeroWrapper } from "../../styles/Wrappers";
 import ContactHero from "../Hero/ContactHero";
@@ -32,8 +32,3 @@ export default function CustomComponent({ rows }) {
     </FullWidthCustomComponentContainer>
   );
 }
-
-CustomComponent.propTypes = {
-  rows: PropTypes.array,
-  fullWidth: PropTypes.bool,
-};

@@ -106,7 +106,7 @@ export const Panel = styled.div`
     text-align: center;
   }
 
-  /* a {
-    margin: 0 auto;
-  } */
+  p.price {
+    text-decoration: italic;
+  }
 `;

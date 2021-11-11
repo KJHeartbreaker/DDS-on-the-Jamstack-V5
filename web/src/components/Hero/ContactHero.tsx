@@ -47,18 +47,13 @@ export default function ContactHero({
               sales@desertdrillingsupply.com
             </a>
           </div>
-          {/* <div className="mail">
-            <span>{envelope}</span>
+          <div className="mail">
             <p>
               Desert Drilling Supply
               <br />
-              RR4
-              <br />
-              Kamloops BC
-              <br />
-              V1S 1Z9
+              RR4, Kamloops BC. Canada
             </p>
-          </div> */}
+          </div>
         </CopySide>
         <FormSide>
           <ContactForm title={title} />

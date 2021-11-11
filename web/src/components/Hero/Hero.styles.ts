@@ -26,7 +26,6 @@ export const ParaHeroContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  /* height: 100vh; */
 
   @media ${device.md} {
     flex-direction: row;
@@ -49,14 +48,26 @@ export const Centered = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  max-width: 800px;
   order: 2;
   padding: 24px;
   width: 100%;
-  position: absolute;
   z-index: 10;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+
+  @media ${device.sm} {
+    max-width: 800px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      color: #fff !important;
+    }
+  }
 `;
 
 export const HeroCopy = styled.div`
@@ -243,6 +254,18 @@ export const Wrapper = styled(HeroWrapper)`
       h5,
       p {
         color: #fff;
+      }
+    }
+
+    &.tan,
+    &.lightBlueSolid {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      p {
+        color: #000;
       }
     }
 

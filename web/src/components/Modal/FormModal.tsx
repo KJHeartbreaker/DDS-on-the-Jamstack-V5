@@ -9,8 +9,11 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import Box from "@mui/material/Box";
 import { ThemeProvider } from "@mui/material/styles";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 import { createTheme } from "@mui/material/styles";
+import { useStyles } from "./Modal.styles";
 
 const theme = createTheme({
   palette: {
@@ -27,6 +30,8 @@ export default function FormModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const classes = useStyles();
 
   const buttons = [
     <Button
@@ -98,6 +103,21 @@ export default function FormModal() {
           }}
           width={{ xs: 300, sm: 500, md: 800 }}
         >
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+            }}
+          >
+            <IconButton
+              onClick={handleClose}
+              edge="end"
+              className={classes.closeButton}
+            >
+              <CloseIcon />
+            </IconButton>
+          </Box>
           <ContactForm title="Contact Sales" />
         </Box>
       </Modal>

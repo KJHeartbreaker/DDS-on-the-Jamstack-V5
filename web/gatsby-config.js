@@ -21,8 +21,29 @@ module.exports = {
         overlayDrafts: !isProd,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `src/static/icon.svg`,
+      },
+    },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-netlify`,
+    {
+      resolve: "gatsby-plugin-sanity-image",
+      options: {
+        // Sanity project info (required)
+        ...clientConfig.sanity,
+        // Additional params to include with every image.
+        // This is optional and the default is shown
+        // below—if you like what you see, don’t set it.
+        defaultImageConfig: {
+          quality: 75,
+          fit: "max",
+          auto: "format",
+        },
+      },
+    },
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {

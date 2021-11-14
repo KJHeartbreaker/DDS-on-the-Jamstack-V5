@@ -36,6 +36,11 @@ export default {
       inputComponent: PriceInput,
     },
     {
+      name: "itemNumber",
+      title: "Item Number",
+      type: "string",
+    },
+    {
       name: "images",
       title: "Images",
       type: "array",
@@ -49,11 +54,13 @@ export default {
   preview: {
     select: {
       title: "title",
+      subtitle: "itemNumber",
       media: "images.0.asset",
     },
-    prepare({ title, media }) {
+    prepare({ title, subtitle, media }) {
       return {
         title,
+        subtitle: subtitle ? subtitle : "",
         media,
       };
     },

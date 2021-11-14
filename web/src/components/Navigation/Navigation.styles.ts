@@ -4,7 +4,6 @@ import { Container } from "../../styles/Wrappers";
 
 export const Nav = styled.nav`
   display: grid;
-  /* grid-template-rows: "60px"; */
   grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
@@ -35,9 +34,9 @@ export const PrimaryNav = styled(Container)`
   max-width: 100%;
   width: 100%;
   margin: 0;
-  padding-left: 0;
-  padding-right: 0;
-  /* height: 90px; */
+  padding-left: 10px;
+  padding-right: 20px;
+  box-sizing: border-box;
 
   li {
     list-style: none;
@@ -55,17 +54,13 @@ export const PrimaryNav = styled(Container)`
     display: grid;
     grid-template-columns: 250px 1fr;
     grid-template-rows: 90px;
-    /* grid-template-rows: 50px 50px; */
-    /* grid-column-gap: 100px; */
     grid-row-start: 1;
     position: sticky;
-    /* top: 0; */
   }
 
   @media ${device.md} {
     position: relative;
     grid-column-gap: unset;
-    /* grid-template-columns: max(180px) 1fr; */
     height: 100%;
     margin: 0 auto;
   }
@@ -98,7 +93,6 @@ export const LogoContainer = styled.div`
   @media ${device.sm} {
     grid-column-start: 1;
     grid-row-start: 1;
-    /* grid-row-end: span 2; */
     align-items: center;
     justify-content: center;
     padding: unset;
@@ -111,13 +105,18 @@ export const LogoContainer = styled.div`
   }
 
   a {
-    /* display: flex; */
-    width: 250px;
+    width: 200px;
     height: 70px;
     justify-content: center;
     align-items: center;
     display: grid;
-    grid-template-columns: 100px 150px;
+    grid-template-columns: 75px 115px;
+    gap: 15px;
+
+    @media ${device.sm} {
+      width: 250px;
+      grid-template-columns: 100px 150px;
+    }
 
     svg {
       justify-content: center;
@@ -128,17 +127,25 @@ export const LogoContainer = styled.div`
 
     .logo-top {
       font-family: "EB Garamond", serif;
-      font-size: 2em;
+      font-size: 1.6em;
       text-transform: uppercase;
       line-height: 0.9;
       letter-spacing: 0.2em;
+
+      @media ${device.sm} {
+        font-size: 2em;
+      }
     }
 
     .logo-bottom {
       font-family: "Oswald", serif;
       font-weight: 700;
-      font-size: 1.3em;
+      font-size: 1em;
       text-transform: uppercase;
+
+      @media ${device.sm} {
+        font-size: 1.3em;
+      }
     }
 
     p.logo-top,

@@ -13,6 +13,7 @@ const formatCurrency = (num) => {
 
 export default function UsedEquipmentComponent({
   title,
+  itemNumber,
   _rawTagline,
   _rawImages,
   price,
@@ -22,25 +23,22 @@ export default function UsedEquipmentComponent({
       {title && <h1>{title}</h1>}
       <Panels>
         <Panel>
-          {_rawTagline && (
+          {itemNumber && <h3>Item Number: {itemNumber}</h3>}
+          <PortableText blocks={_rawTagline.portableTextBlock} />
+          {price ? (
             <>
-              <PortableText blocks={_rawTagline.portableTextBlock} />
-              {price ? (
-                <>
-                  <p>
-                    <em className="price">{formatCurrency(price)}</em>
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p>
-                    <em className="price">Call for pricing</em>
-                  </p>
-                </>
-              )}
-              <FormModal />
+              <h3>
+                <em className="price">{formatCurrency(price)}</em>
+              </h3>
+            </>
+          ) : (
+            <>
+              <h3>
+                <em className="price">Call for pricing</em>
+              </h3>
             </>
           )}
+          <FormModal />
         </Panel>
         <Panel>
           {_rawImages.length > 1 ? (

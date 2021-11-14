@@ -11,6 +11,7 @@ export const query = graphql`
       slug {
         current
       }
+      itemNumber
       _rawTagline(resolveReferences: { maxDepth: 10 })
       _rawImages(resolveReferences: { maxDepth: 10 })
       price

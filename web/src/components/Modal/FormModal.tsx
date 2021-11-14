@@ -101,7 +101,8 @@ export default function FormModal() {
             justifyContent: "center",
             alignItems: "center",
           }}
-          width={{ xs: 300, sm: 500, md: 800 }}
+          width={{ xs: 320, sm: 500, md: 800 }}
+          boxSizing="border-box"
         >
           <Box
             sx={{

@@ -1,12 +1,12 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { GoHome, GoSettings, GoOilRig } from "react-icons/go";
+import { GoHome, GoSettings } from "react-icons/go";
 import { GiOilRig } from "react-icons/gi";
 import IframePreview from "../previews/IframePreview";
 import navigation from "./navigation";
 import pages from "./pages";
 
 // Web preview configuration
-const remoteURL = "https://dds-on-the-jamstack-v-5.netlify.app";
+const remoteURL = "https://admiring-allen-d046ea.netlify.app";
 const localURL = "http://localhost:8000";
 const previewURL =
   window.location.hostname === "localhost" ? localURL : remoteURL;

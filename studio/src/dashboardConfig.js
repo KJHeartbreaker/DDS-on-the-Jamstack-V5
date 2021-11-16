@@ -12,10 +12,10 @@ export default {
                 "NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.",
               sites: [
                 {
-                  buildHookId: "61743f11eba7b50f21aac15a",
+                  buildHookId: "61940aded6e409009c419b2d",
                   title: "DDS Website",
-                  name: "dds-on-the-jamstack-v-5",
-                  apiId: "02942a43-5ca3-4905-a03b-d6fee08344d7",
+                  name: "admiring-allen-d046ea",
+                  apiId: "54be34cb-565c-4a2c-8f71-c2c22b15ae2d",
                 },
               ],
             },

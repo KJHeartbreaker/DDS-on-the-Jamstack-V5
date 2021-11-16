@@ -24,8 +24,6 @@ export default function LayoutGrid({ blocks }) {
     columns = "fourUp";
   }
 
-  console.log("blocks: ", blocks);
-
   return (
     <GridComponentContainer>
       <XColumnsUp className={columns}>

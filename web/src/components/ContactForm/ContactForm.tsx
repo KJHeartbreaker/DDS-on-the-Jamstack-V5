@@ -41,9 +41,10 @@ export default function ContactForm({ title }) {
           <h2>{title}</h2>
           <form
             onSubmit={onSubmit}
+            method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            name="contact-form"
+            name="contact"
           >
             <FormInput type="hidden" name="form-name" value="contact" />
             <FormGroup>

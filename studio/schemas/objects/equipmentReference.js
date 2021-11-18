@@ -14,11 +14,13 @@ export default {
   preview: {
     select: {
       title: "equipment.title",
+      subtitle: "equipment.itemNumber",
       media: "equipment.images.0.asset",
     },
-    prepare({ title, media }) {
+    prepare({ title, subtitle, media }) {
       return {
         title,
+        subtitle,
         media,
       };
     },

@@ -1,5 +1,4 @@
 /* eslint-disable import/no-unresolved */
-import { ViewDaySharp } from "@mui/icons-material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import {
@@ -27,8 +26,6 @@ export default function ContactForm({ title }) {
     reset,
     formState: { errors },
   } = useForm<Profile>();
-
-  // const thankYou = (name) => <ThankYou name={name} />
 
   const onSubmit = handleSubmit((data, e) => {
     e.preventDefault();

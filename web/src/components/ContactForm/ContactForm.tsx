@@ -48,7 +48,7 @@ export default function ContactForm({ title }) {
             data-netlify-honeypot="bot-field"
             name="Contact Form"
           >
-            <FormInput type="hidden" name="form-name" value="Contact Form" />
+            <input type="hidden" name="form-name" value="Contact Form" />
             <FormGroup>
               <FormInput {...register("name")} />
               <Label>Name</Label>

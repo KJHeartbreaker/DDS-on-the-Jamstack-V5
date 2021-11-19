@@ -28,6 +28,8 @@ export default function ContactForm({ title }) {
   } = useForm<Profile>();
 
   const onSubmit = handleSubmit((data, e) => {
+    console.log("data: ", data);
+
     e.preventDefault();
     setMessage(data.name);
     reset();
@@ -44,9 +46,9 @@ export default function ContactForm({ title }) {
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            name="contact"
+            name="Contact Form"
           >
-            <FormInput type="hidden" name="form-name" value="contact" />
+            <FormInput type="hidden" name="form-name" value="Contact Form" />
             <FormGroup>
               <FormInput {...register("name")} />
               <Label>Name</Label>

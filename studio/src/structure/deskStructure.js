@@ -1,6 +1,6 @@
 import S from "@sanity/desk-tool/structure-builder";
 import { GoHome, GoSettings } from "react-icons/go";
-import { GiOilRig } from "react-icons/gi";
+import { GiOilRig, GiBatteryPlus } from "react-icons/gi";
 import IframePreview from "../previews/IframePreview";
 import navigation from "./navigation";
 import pages from "./pages";
@@ -64,8 +64,25 @@ export default () =>
         .icon(GoHome)
         .child(S.document().schemaType("page").documentId("homepage")),
       pages,
-      S.documentTypeListItem("used")
+      S.listItem()
         .title("Equipment Inventory")
-        .icon(GiOilRig),
+        .icon(GiOilRig)
+        .child(
+          // List out all of the equipment pages with the Surplus not selected
+          S.documentList()
+            .title("Equipment Inventory")
+            .filter("surplus == false")
+            .menuItems([...S.documentTypeList("used").getMenuItems()])
+        ),
+      S.listItem()
+        .title("Surplus Inventory")
+        .icon(GiBatteryPlus)
+        .child(
+          // List out all of the equipment pages with the Surplus selected
+          S.documentList()
+            .title("Surplus Inventory")
+            .filter("surplus == true")
+            .menuItems([...S.documentTypeList("used").getMenuItems()])
+        ),
       ...S.documentTypeListItems().filter(hiddenDocTypes),
     ]);

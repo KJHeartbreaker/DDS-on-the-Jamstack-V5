@@ -11,6 +11,11 @@ export default {
       title: "Name",
     },
     {
+      title: "Is this equipment surplus?",
+      name: "surplus",
+      type: "boolean",
+    },
+    {
       name: "slug",
       type: "slug",
       title: "Slug",
@@ -51,16 +56,39 @@ export default {
       ],
     },
   ],
+  initialValue: {
+    surplus: false,
+  },
+  orderings: [
+    {
+      title: "Sort by Item Number Ascending",
+      name: "itemAsc",
+      by: [{ field: "itemNumber", direction: "asc" }],
+    },
+    {
+      title: "Sort by Item Number Descending",
+      name: "itemDesc",
+      by: [{ field: "itemNumber", direction: "desc" }],
+    },
+  ],
   preview: {
     select: {
       title: "title",
       subtitle: "itemNumber",
+      surplus: "surplus",
       media: "images.0.asset",
     },
-    prepare({ title, subtitle, media }) {
+    prepare({ title, subtitle, surplus, media }) {
+      let sub;
+
+      if (subtitle && surplus === true) {
+        sub = `surplus | Item ${subtitle}`;
+      } else {
+        sub = `Item ${subtitle}`;
+      }
       return {
         title,
-        subtitle: subtitle ? subtitle : "",
+        subtitle: subtitle ? sub : "",
         media,
       };
     },

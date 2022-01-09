@@ -11,9 +11,6 @@ const serializers = {
       <Figure asset={node.asset} {...node} alt={node.alt} />
     ),
     cta: ({ node }) => <CTALink {...node} />,
-    // mainImage: ({ node }) => (
-    //   <SanityImage asset={node.asset} {...node} alt={node.alt} />
-    // ),
     illustration: ({ node }) => (
       <Figure asset={node.image.asset} {...node} alt={node.image.alt} />
     ),

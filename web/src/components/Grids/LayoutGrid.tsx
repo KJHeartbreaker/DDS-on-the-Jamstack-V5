@@ -6,8 +6,6 @@ import Figure from "../Figure/Figure";
 import ContactForm from "../ContactForm/ContactForm";
 
 export default function LayoutGrid({ blocks }) {
-  const { center } = blocks;
-  const [centered, setCentered] = React.useState(false);
   const gridColumns = blocks.length;
 
   let columns;
@@ -30,11 +28,7 @@ export default function LayoutGrid({ blocks }) {
         {blocks.map((block, i) => (
           <Panel key={i} className={block.center ? "centered" : ""}>
             {block._type === "pagePortableText" && (
-              <PortableText
-                blocks={block.portableTextBlock}
-                // centered={block.center ? () => setCentered(true) : null}
-                {...block}
-              />
+              <PortableText blocks={block.portableTextBlock} {...block} />
             )}
             {block._type === "mainImage" && (
               <Figure asset={block.asset} alt={block.alt} {...block} />

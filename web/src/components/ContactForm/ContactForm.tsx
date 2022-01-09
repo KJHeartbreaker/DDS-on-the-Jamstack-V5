@@ -25,7 +25,6 @@ function encode(data) {
 }
 
 export default function ContactForm({ title }) {
-  // const [message, setMessage] = React.useState("");
   const [message, setMessage] = React.useState(false);
 
   const [state, setState] = React.useState({});
@@ -46,24 +45,9 @@ export default function ContactForm({ title }) {
       }),
     })
       .then(() => setMessage(true))
-      // .then(() => navigate(form.getAttribute('action')))
       .catch((error) => alert(error));
   };
 
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   reset,
-  //   formState: { errors },
-  // } = useForm<Profile>();
-
-  // const onSubmit = handleSubmit((data, e) => {
-  //   console.log("data: ", data);
-
-  //   e.preventDefault();
-  //   setMessage(data.name);
-  //   reset();
-  // });
   return (
     <ReactFormWrapper>
       {message ? (
@@ -74,7 +58,6 @@ export default function ContactForm({ title }) {
           <form
             name="contact"
             method="post"
-            // action="/thanks/"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
@@ -112,69 +95,6 @@ export default function ContactForm({ title }) {
               <button type="submit">Send</button>
             </p>
           </form>
-          {/* <form
-            onSubmit={onSubmit}
-            method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            name="Contact Form"
-          >
-            <input type="hidden" name="form-name" value="Contact Form" />
-            <FormGroup>
-              <FormInput {...register("name")} />
-              <Label>Name</Label>
-              {errors?.name && <Error>{errors.name.message}</Error>}
-            </FormGroup>
-
-            <FormGroup>
-              <FormInput
-                {...register("email", {
-                  required: `Email is required`,
-                  pattern: {
-                    value: /\S+@\S+\.\S+/,
-                    message: "Please enter a valid email address",
-                  },
-                })}
-                type="email"
-              />
-              <Label htmlFor="email">Email</Label>
-            </FormGroup>
-
-            <FormGroup>
-              <FormInput
-                {...register("phone", {
-                  required: `Phone number is required`,
-                  minLength: {
-                    value: 8,
-                    message: "Minimum length is 8 characters",
-                  },
-                  maxLength: {
-                    value: 15,
-                    message: "Maximum length is 15 characters",
-                  },
-                  valueAsNumber: true,
-                })}
-                type="phone"
-              />
-              <Label htmlFor="phone">Phone</Label>
-            </FormGroup>
-
-            <FormGroup>
-              <FormTextArea
-                {...register("message", {
-                  required: `A message is required`,
-                  maxLength: {
-                    value: 2000,
-                    message: "Maximum length is 2000 characters",
-                  },
-                })}
-                placeholder="Type your message here..."
-              />
-              <Label>Message</Label>
-            </FormGroup>
-
-            <FormInput type="submit" />
-          </form> */}
         </>
       )}
     </ReactFormWrapper>

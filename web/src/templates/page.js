@@ -1,10 +1,10 @@
+/* eslint-disable import/no-unresolved */
 import React from "react";
 import { graphql } from "gatsby";
 
 // Components
 import GraphQLErrorList from "../components/graphql-error-list";
 import Hero from "../components/Hero/Hero";
-// import Grid from "../components/Grids/Grid";
 import EssEeOh from "../components/seo";
 import LayoutGrid from "../components/Grids/LayoutGrid";
 import EquipmentGrid from "../components/Grids/EquipmentGrid";
@@ -14,7 +14,6 @@ export const query = graphql`
   query PageTemplateQuery($id: String!) {
     page: sanityPage(id: { eq: $id }) {
       title
-      # ...PageInfo
       id
       title
       _rawContent(resolveReferences: { maxDepth: 10 })

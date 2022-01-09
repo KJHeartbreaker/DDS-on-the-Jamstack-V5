@@ -81,13 +81,7 @@ async function createEquipmentPages(
   const pageEdges = (result.data.allSanityUsed || {}).edges || [];
 
   pageEdges.forEach((edge) => {
-    const {
-      id,
-      // includeInSitemap,
-      // disallowRobots,
-      _updatedAt,
-      slug = {},
-    } = edge.node;
+    const { id, _updatedAt, slug = {} } = edge.node;
     const path = [pathPrefix, slug.current, "/"].join("");
     reporter.info(`Creating landing page: ${path}`);
 
@@ -96,8 +90,6 @@ async function createEquipmentPages(
       component: require.resolve("./src/templates/usedPage.js"),
       context: {
         id,
-        // includeInSitemap,
-        // disallowRobots,
         _updatedAt,
       },
     });

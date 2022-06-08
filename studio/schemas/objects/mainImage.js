@@ -33,8 +33,6 @@ export default {
       media: "asset",
     },
     prepare({ title, altTitle, media }) {
-      console.log("media: ", media);
-
       return {
         title: `${title ? title : altTitle}`,
         media,

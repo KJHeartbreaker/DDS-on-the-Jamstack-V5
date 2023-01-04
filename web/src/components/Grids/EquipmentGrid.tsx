@@ -22,7 +22,7 @@ export default function EquipmentGrid({ title, content }) {
                   {...el.equipment.images[0]}
                 />
               ) : (
-                <StaticImage src="https://cdn.sanity.io/images/je1gp4wx/production/3ee840906f6c5d1c66b4ff9a2f2f015b9a0f6a6e-362x294.svg" alt="Contact for images" />
+                <StaticImage src="../../static/icon.svg" alt="Contact for images" />
               )}
             </Link>
           </EquipmentGridCard>

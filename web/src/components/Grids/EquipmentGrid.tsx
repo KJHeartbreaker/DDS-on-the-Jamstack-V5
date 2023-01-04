@@ -6,6 +6,8 @@ import { StaticImage } from "gatsby-plugin-image"
 import { EquipmentGridCard, EquipmentGridContainer } from "./Grid.styles";
 
 export default function EquipmentGrid({ title, content }) {
+  const staticImg = 'https://cdn.sanity.io/images/je1gp4wx/production/3ee840906f6c5d1c66b4ff9a2f2f015b9a0f6a6e-362x294.svg'
+
   return (
     <>
       <EquipmentGridContainer>
@@ -22,7 +24,7 @@ export default function EquipmentGrid({ title, content }) {
                   {...el.equipment.images[0]}
                 />
               ) : (
-                <StaticImage src="../../static/icon.svg" alt="Contact for images" />
+                <StaticImage src={staticImg} alt="Contact for more information" />
               )}
             </Link>
           </EquipmentGridCard>

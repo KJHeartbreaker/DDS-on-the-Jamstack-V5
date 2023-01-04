@@ -41,15 +41,17 @@ export default function UsedEquipmentComponent({
           <FormModal />
         </Panel>
         <Panel>
-          {_rawImages.length > 1 ? (
+          {_rawImages && _rawImages.length > 1 && (
             <SwipeableTextMobileStepper images={_rawImages} />
-          ) : (
+          )}
+          {_rawImages && _rawImages.length === 1 && (
             <Figure
               asset={_rawImages[0].asset}
               alt={_rawImages[0].alt}
               {..._rawImages[0]}
             />
           )}
+          {_rawImages === null && (<h3>Contact for images</h3>)}
         </Panel>
       </Panels>
     </UsedEquipmentWrapper>
